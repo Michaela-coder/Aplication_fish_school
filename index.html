@@ -177,7 +177,7 @@
       font-size: 0.98rem;
     }
 
-    .visit-counter {
+    .visitor-counter {
       width: fit-content;
       max-width: 100%;
       margin: 20px auto 0;
@@ -191,14 +191,14 @@
       justify-items: center;
     }
 
-    .visit-counter p {
+    .visitor-counter p {
       margin: 0;
       color: #075985;
       font-weight: 800;
       font-size: 0.98rem;
     }
 
-    .visit-counter img {
+    .visitor-counter img {
       display: block;
       max-width: 100%;
       height: auto;
@@ -438,6 +438,36 @@
     .step-icon { font-size: 2rem; flex-shrink: 0; line-height: 1; }
     .about-step h3 { margin: 0 0 4px; color: #0369a1; }
     .about-step p  { margin: 0; font-size: 0.95rem; }
+
+    .school-note {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 16px 0;
+      padding: 14px;
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border: 1px solid #bae6fd;
+      border-radius: 14px;
+    }
+    .school-main {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .school-note p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .school-logo {
+      display: block;
+      max-width: 120px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(8, 87, 138, 0.16);
+      flex-shrink: 0;
+    }
 
     .source-note {
       background: #f0fdf4;
@@ -983,6 +1013,8 @@
       .quick-nav button { font-size: 0.86rem; padding: 5px; }
       .score-save-form { display: grid; }
       .score-save-form input { min-width: 0; width: 100%; }
+      .school-note { flex-direction: column; align-items: flex-start; }
+      .school-logo { align-self: center; }
       .about-step { flex-direction: column; gap: 8px; }
     }
     @keyframes swimAcrossMobile {
@@ -1024,9 +1056,10 @@
         <button id="goAbout">💡 O projektu</button>
       </nav>
       <p class="home-tip">Tip: Začni poznávačkou nebo si zkus postavit rybu.</p>
-      <div class="visit-counter">
+      <div class="visitor-counter">
         <p>Počet návštěv stránky:</p>
-        <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=5&type=page&initCount=0" />
+        <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0006&nbdigits=5&type=page&initCount=0"
+          onerror="this.closest('.visitor-counter').style.display='none'" />
       </div>
     </section>
 
@@ -1370,7 +1403,15 @@
           <button data-nav="leaderboard">🏆 Žebříček</button>
         </div>
       </nav>
-      <p class="small-note">Pro školní prezentaci – jak tento projekt vznikl</p>
+
+      <div class="school-note">
+        <div class="school-main">
+          <div class="step-icon">🏫</div>
+          <p>Projekt vytvořil žák 4. třídy ZŠ Křídlovická jako interaktivní pomůcku do přírodovědy.</p>
+        </div>
+        <img class="school-logo" src="src/img/logo-skola.png" alt="Logo ZŠ Křídlovická"
+          onerror="this.style.display='none'">
+      </div>
 
       <div class="about-steps">
         <div class="about-step">
